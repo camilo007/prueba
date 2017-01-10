@@ -1,0 +1,33 @@
+.header {
+  background-image: url("./app/img/background2.jpg");
+  height: 10em;
+  border-bottom: 1px solid #3841a4;
+}
+.enlace:hover {
+  color: #111973;
+  font-size: 22px;
+}
+.enlace {
+  transition-duration: 1.5s;
+  color: #65688c;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.enlace1:hover {
+  color: #111973;
+  font-size: 22px;
+}
+.enlace1 {
+  transition-duration: 1.5s;
+  color: #65688c;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.logo {
+  width: 126px;
+  margin-top: 3.1em;
+  margin-left: 5em;
+}
+.acomodar {
+  margin-top: -6em;
+}

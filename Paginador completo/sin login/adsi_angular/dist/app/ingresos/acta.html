@@ -1,0 +1,837 @@
+<div>
+
+  <div class="formu" id="muestra" style="margin-left:25%;width:150%" class="container-fluid">
+
+    <div class="text-center"></div>
+
+      <div class="row">
+
+        <div class="col-sm-4" style="width: 30%;margin-left: 6em;height: 67%;margin-top:2em">
+
+          <div class="panel panel-default text-center">
+
+            <div class="panel-heading">
+
+              <img style="margin-left: -80%;margin-top: 2%;" class="logo" src="./app/img/img.png">
+
+              <h3 class="acta" style="margin-top: 0%;font-size: 42px;">ACTA DE RECIBO DE EQUIPOS</h3>
+              <p class="pro" style="margin-right: 2%;font-size: 24px;">Proceso:Gestión de Servicio al Cliente</p>
+              <p class="fo" style="margin-top: -2.2%;font-size: 21px;">FO-SC-06</p>
+
+              <div class="no" style="float: right;margin-top: -6%;width: 62%;font-size:25px;margin-right:-22%" class="form-group">
+                <label>No.</label>
+                <input style="width:19%;border-radius: 4px;" ng-model="vm.ingres.numOrden" class="num" required class="form-control" readonly="readonly" >
+              </div>
+
+            </div>
+
+            <div class="panel-body">
+
+              <div style="width:50%">
+                <label style="font-size: 25px;">EMPRESA</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.cliente" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div style="width:50%">
+                <label style="font-size: 25px;">CIUDAD</label>
+                  <input ng-model="vm.ingres.idCiudad.nombreCiudad" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div style="width:50%">
+                <label style="font-size: 25px;">DIRECCIÓN</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.direccion" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="form-group" style="width:50%" >
+                <label style="font-size: 25px;">CLASE DE EQUIPO</label>
+                  <input ng-model="vm.ingres.otros" class="form-control" type="text" required>
+              </div>
+                 
+              <div class="fecha" style="width: 20%;float: right;margin-top: -38.5%;">
+                <label  class="fch" style="font-size: 25px;">FECHA</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.fechaIngreso | date:format:timezone " class="form-control" readonly="readonly">
+              </div>
+
+              <div class="tel" style="width: 48%;float: right;margin-top: -29.5%;">
+                <label style="font-size: 25px;">TELEFONO</label>
+                  <input ng-model="vm.ingres.telefono" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="cont" style="width: 48%;float: right;margin-top: -20.3%;">
+                <label style="font-size: 25px;">CONTACTO</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.contacto" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="ot" style="width: 14%;float: right;margin-top: -9.1%;margin-right:34%">
+                <label style="font-size: 10px;">EQUIPOS</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.numeroEquipos" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="nf" style="width: 14%;float: right;margin-top: -9.1%;">
+                <label style="font-size: 10px;">FUNDAS</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.numeroFundas" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="ne" style="width: 15%;float: right;margin-top: -9.1%;margin-right:16.5%">
+                <label style="font-size: 10px;">ESTUCHES</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.numeroEstuches" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <h1 style="margin-left: 2em;">OBSERVACIONES</h1>
+                <input style="text-transform: uppercase" ng-model="vm.ingres.observaciones" class="form-control" type="text" required>
+
+            </div>
+
+            <div class="panel-footer">
+              <div class="dv1" style="width: 45%;border-bottom: 3px solid black;margin-top: 12%;"></div>
+                <p class="dv2" style="margin-right: 57%;font-size: 25px;"> FIRMA ENTREGA</p>
+              <div class="fr" style="width: 45%;border-bottom: 3px solid black;margin-top: -6%;float: right;"></div>
+                <p class="fr1" style="margin-left: 55%;margin-top: -5.5%;font-size: 25px;">FIRMA RECIBIDO</p>
+              <h6 class="h66" style="font-size: 25px;">Se recibe equipos sin verificar estado (Carcasa, funda, estuche) de encontrarse anomalía se le informara al cliente de inmediato.</h6>
+           </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="acta02">
+
+         <div class="col-sm-4" style="width: 30%;margin-left: 6em;height: 67%;margin-top:2em">
+
+          <div class="panel panel-default text-center">
+
+            <div class="panel-heading">
+
+              <img style="margin-left: -80%;margin-top: 2%;" class="logo" src="./app/img/img.png">
+              <h3 class="acta" style="margin-top: 0%;font-size: 42px;">ACTA DE RECIBO DE EQUIPOS</h3>
+              <p class="pro" style="margin-right: 2%;font-size: 24px;">Proceso:Gestión de Servicio al Cliente</p>
+              <p class="fo" style="margin-top: -2.2%;font-size: 21px;">FO-SC-06</p>
+
+              <div class="no" style="float: right;margin-top: -6%;width: 62%;font-size:25px;margin-right:-22%">
+                <label>No.</label>
+                  <input style="width:19%;border-radius: 4px;" ng-model="vm.ingres.numOrden" class="num" type="number" required readonly="readonly">
+              </div>
+
+            </div>
+
+            <div class="panel-body">
+
+              <div style="width:50%">
+                <label style="font-size: 25px;">EMPRESA</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.cliente" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div style="width:50%">
+                <label style="font-size: 25px;">CIUDAD</label>
+                  <input ng-model="vm.ingres.idCiudad.nombreCiudad" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div style="width:50%">
+                <label style="font-size: 25px;">DIRECCIÓN</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.direccion" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="form-group" style="width:50%" >
+                <label style="font-size: 25px;">CLASE DE EQUIPO</label>
+                  <input ng-model="vm.ingres.otros" class="form-control" type="text" required>
+              </div>
+
+              <div class="fecha" style="width: 20%;float: right;margin-top: -38.5%;">
+                <label  class="fch" style="font-size: 25px;">FECHA</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.fechaIngreso | date:format:timezone" class="form-control" required readonly="readonly">
+              </div>
+
+              <div class="tel" style="width: 48%;float: right;margin-top: -29.5%;">
+                <label style="font-size: 25px;">TELEFONO</label>
+                  <input ng-model="vm.ingres.telefono" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="cont" style="width: 48%;float: right;margin-top: -20.3%;">
+                <label style="font-size: 25px;">CONTACTO</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.contacto" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="ot" style="width: 14%;float: right;margin-top: -9.1%;margin-right:34%">
+                <label style="font-size: 10px;">EQUIPOS</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.numeroEquipos" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="nf" style="width: 14%;float: right;margin-top: -9.1%;">
+                <label style="font-size: 10px;">FUNDAS</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.numeroFundas" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <div class="ne" style="width: 15%;float: right;margin-top: -9.1%;margin-right:16.5%">
+                <label style="font-size: 10px;">ESTUCHES</label>
+                  <input style="text-transform:uppercase" ng-model="vm.ingres.numeroEstuches" class="form-control" type="text" required readonly="readonly">
+              </div>
+
+              <h1 style="margin-left: 2em;">OBSERVACIONES</h1>
+                <input style="text-transform: uppercase" ng-model="vm.ingres.observaciones" class="form-control" type="text" required>
+
+            </div>
+
+            <div class="panel-footer">
+              <div class="fr2" style="width: 45%;border-bottom: 3px solid black;margin-top: 12%;"></div>
+                <p class="fe" style="margin-right: 57%;font-size: 25px;"> FIRMA ENTREGA</p>
+              <div class="fr" style="width: 45%;border-bottom: 3px solid black;margin-top: -6%;float: right;"></div>
+                <p class="fr1" style="margin-left: 55%;margin-top: -5.5%;font-size: 25px;">FIRMA RECIBIDO</p>
+              <h6 class="h662" style="font-size: 25px;">Se recibe equipos sin verificar estado (Carcasa, funda, estuche) de encontrarse anomalía se le informara al cliente de inmediato.</h6>
+            </div>
+
+          </div>
+
+         </div>
+
+        </div>
+
+      </div>
+
+    <form class="imp"><input type='button' class="btn btn-default" style="margin-left: 16%;margin-bottom:1%" onclick='window.print(muestra);' value='Imprimir Acta'/>
+
+    <style>
+
+      .acta02{
+        display: none;
+      }
+
+    
+
+    @media (max-width: 1897px){
+      
+      .ne{
+      	width: 16% !important;
+      	margin-right: 16% !important;
+      }
+
+    }
+
+     @media (max-width: 1896px){
+      
+      .ne{
+      	width: 16% !important;
+      	margin-right: 15.4% !important;
+      }
+      .ot{
+      	width: 15% !important;
+      	margin-right: 33% !important;
+      }
+
+    } 
+      
+    @media (max-width: 1880px){
+      .fecha{
+        margin-top: -40% !important;
+      }
+            
+      .tel{
+        margin-top: -30% !important;
+      }
+
+      .cont{
+        margin-top: -21% !important;
+      }
+
+    }
+
+
+    @media (max-width: 1805px){
+      .fecha{
+        margin-top: -42% !important;
+      }
+            
+      .tel{
+        margin-top: -31.5% !important;
+      }
+
+      .cont{
+        margin-top: -21.7% !important;
+      }
+
+      .ot,.ne,.nf{
+        margin-top: -9.5% !important;
+      }
+
+
+    }
+
+    @media (max-width: 1801px){
+     
+     .ne{
+     	
+     	margin-right: 16% !important;
+     }
+
+     .nf{
+     	width: 15% !important;
+     }
+  
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+
+    }
+
+
+    @media (max-width: 1787px){
+     
+     .ne{
+     	
+     	margin-right: 15.5% !important;
+     }
+
+     .nf{
+     	width: 14% !important;
+     }
+  
+
+      .ot{
+        margin-top: -9.5% !important;
+        width: 14% !important;
+      }
+
+
+    }
+
+    @media (max-width: 1740px){
+      .col-sm-4{
+        width: 34% !important;
+        margin-left: 1em !important;
+      }
+        
+      .fecha{
+        margin-top: -38% !important;
+      }
+            
+      .tel{
+        margin-top: -28.5% !important;
+      }
+
+      .cont{
+        margin-top: -19.7% !important;
+      }
+      
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+    }
+
+    @media (max-width: 1655px){
+      .col-sm-4{
+        width: 36% !important;
+        margin-left: -1em !important;
+      }
+
+      .fecha{
+        margin-top: -38% !important;
+      }
+            
+      .tel{
+        margin-top: -28.5% !important;
+      }
+
+      .cont{
+        margin-top: -19.5% !important;
+      }
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -5.7% !important;
+      }
+
+      .fr1{
+        margin-top: -5.5% !important;
+      }
+
+      .btn-default{
+        margin-left: 15% !important;
+      }
+
+    }
+
+    @media (max-width: 1590px){
+      .col-sm-4{
+        width: 39% !important;
+        margin-left: -4em !important;
+      }
+            
+      .fecha{
+        margin-top: -36.5% !important;
+      }
+            
+      .tel{
+        margin-top: -27.5% !important;
+      }
+
+      .cont{
+        margin-top: -19% !important;
+      }
+
+      .ot{
+        margin-top: -9.3% !important;
+      }
+
+      .fr1{
+        margin-top: -5% !important;
+      }
+
+      .fr{
+        margin-top: -5.6% !important;
+      }
+
+      .btn-default{
+        margin-left: 15% !important;
+      }
+      
+    }
+
+    @media (max-width: 1550px){
+      .col-sm-4{
+        margin-left: -1% !important;
+        width: 36% !important;
+      }
+
+      .fecha{
+        margin-top: -40% !important;
+      }
+            
+      .tel{
+        margin-top: -30.2% !important;
+      }
+
+      .cont{
+        margin-top: -20.8% !important;
+      }
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -6.5% !important;
+      }
+
+      .btn-default{
+        margin-left: 14% !important;
+      }
+
+      .fr1{
+        margin-top: -5% !important;
+      }
+    }
+
+    @media (max-width: 1480px){
+      .no{
+        width: 69% !important;
+        margin-right: -22% !important;
+      }
+
+      .col-sm-4{
+        margin-left: -4% !important;
+        width: 40% !important;
+      }
+
+      .fecha{
+        margin-top: -38% !important;
+      }
+            
+      .tel{
+        margin-top: -28.5% !important;
+      }
+
+      .cont{
+        margin-top: -19.5% !important;
+      }
+      
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -6% !important;
+      }
+
+      .fr1{
+        margin-top: -5.5% !important;
+      }
+    }
+
+    @media (max-width: 1420px){
+      .col-sm-4{
+        margin-left: -3% !important;
+        width: 42% !important;
+      }
+
+      .no{
+        width: 72% !important;
+        margin-right: -22% !important;
+      }
+
+      .fecha{
+        margin-top: -38% !important;
+        width: 22% !important;
+      }
+            
+      .tel{
+        margin-top: -28.4% !important;
+      }
+
+      .cont{
+        margin-top: -19.5% !important;
+      }
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -5.7% !important;
+      }
+
+      .fr1{
+        margin-top: -5.5% !important;
+      }
+    }
+      
+    @media (max-width: 1350px){
+      .col-sm-4{
+        margin-left: -5% !important;
+        width: 45% !important;
+      }
+
+      .no{
+        width: 74% !important;
+        margin-right: -22% !important;
+      }
+
+      .fecha{
+        margin-top: -37% !important;
+        width: 22% !important;
+      }
+            
+      .tel{
+        margin-top: -28% !important;
+      }
+
+      .cont{
+        margin-top: -19.4% !important;
+      }
+
+      .ot{
+        margin-top: -9.3% !important;
+      }
+
+      .fr{
+        margin-top: -5.8% !important;
+      }
+
+      .fr1{
+        margin-top: -6% !important;
+      }
+    }
+
+    @media (max-width: 1290px){
+      .col-sm-4{
+        margin-left: -6% !important;
+        width: 47% !important;
+      }
+
+      .no{
+        width: 82% !important;
+        margin-right: -30% !important;
+      }
+
+      .fecha{
+        margin-top: -37% !important;
+        width: 25% !important;
+      }
+            
+      .tel{
+        margin-top: -28% !important;
+      }
+
+      .cont{
+        margin-top: -19.4% !important;
+      }
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -5.7% !important;
+      }
+
+      .fr1{
+        margin-top: -43px!important;
+      }
+    }
+
+    @media (max-width: 1240px){
+      .col-sm-4{
+        margin-left: -7% !important;
+        width: 49% !important;
+      }
+
+      .no{
+        width: 76% !important;
+        margin-right: -22% !important;
+      }
+
+      .fecha{
+        margin-top: -37% !important;
+        width: 22% !important;
+      }
+            
+      .tel{
+        margin-top: -27.9% !important;
+      }
+
+      .cont{
+        margin-top: -19.2% !important;
+      }
+
+      .ot{
+        margin-top: -9.3% !important;
+      }
+
+      .fr{
+        margin-top: -5.6% !important;
+      }
+
+      .fr1{
+        margin-top: -5.5% !important;
+      }
+    }
+
+    @media (max-width: 1150px){      
+      .col-sm-4{
+        margin-left: -8% !important;
+        width: 48% !important;
+      }
+
+      .no{
+        width: 76% !important;
+        margin-right: -22% !important;
+      }
+
+      .fecha{
+        margin-top: -41% !important;
+        width: 22% !important;
+      }
+            
+      .tel{
+        margin-top: -30.9% !important;
+      }
+
+      .cont{
+        margin-top: -21.1% !important;
+      }
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -6.7% !important;
+      }
+
+      .fr1{
+        margin-top: -6.5% !important;
+      }
+    }
+
+    @media (max-width: 1100px){
+      .col-sm-4{
+        margin-left: -9% !important;
+        width: 52% !important;
+      }
+
+      .no{
+        width: 76% !important;
+        margin-right: -22% !important;
+      }
+
+      .fecha{
+        margin-top: -40% !important;
+        width: 22% !important;
+      }
+            
+      .tel{
+        margin-top: -30.5% !important;
+      }
+
+      .cont{
+        margin-top: -20.9% !important;
+      }
+
+      .ot{
+        margin-top: -9.5% !important;
+      }
+
+      .fr{
+        margin-top: -6.3% !important;
+      }
+
+      .fr1{
+        margin-top: -5.8% !important;
+      }
+    }
+
+    @media (max-width: 1070px){
+
+      .form-control{
+        height: 35px !important;
+        font-size: 20px !important;
+      }
+      .label{
+        font-size: 20px !important;
+      }
+
+
+      .nf,.ne{
+      	margin-top: -8% !important;
+      }
+
+      .acta02{
+        display: -webkit-inline-box !important;
+        width: 100% !important;
+      }
+
+      .logo{
+        height: 80px !important;
+        padding-top: 16px !important;
+      }
+
+      .acta{
+        margin-left: -1% !important;
+        font-size: 30px !important;
+        height: 15px !important;
+        margin-top: -7% !important;
+      }
+
+      label{
+        font-size: 10px !important;
+      }
+
+      .col-sm-4{
+        margin-left: -13.5% !important;
+        width: 62% !important;
+        padding-top: 1% !important;
+        border: 1px solid;
+      }
+
+      .pro{
+        margin-left: 5% !important;
+        margin-right: 3% !important;
+        font-size: 20px !important;
+      }
+      .dv1{
+        margin-top: 5% !important;
+      }
+      .dv2{
+        font-size: 16px !important;
+      }
+
+      .fo{
+        margin-right: 0;
+        margin-top: -1.2% !important;
+        font-size: 15px !important;
+      }
+
+      .no{
+        width: 34% !important;
+        margin-right: -12% !important;
+        font-size: 16px !important;
+      }
+
+      .fecha{
+        margin-top: -26.5% !important;
+        width: 22% !important;
+      }
+      .fr2{
+        margin-top: 5% !important;
+      }
+      .h662{
+        font-size: 17px !important;
+      }
+            
+      .tel{
+        margin-top: -20% !important;
+      }
+
+      .cont{
+        margin-top: -14% !important;
+      }
+
+      .ot{
+        margin-top: -8% !important;
+      }
+
+      .fr{
+        margin-top: -4% !important;
+      }
+      .fe{
+        font-size: 15px !important;
+      }
+
+      .fr1{
+        margin-top: -3.5% !important;
+        font-size: 15px !important;
+      }
+      .h66{
+        font-size: 17px !important;
+      }
+      .imp{
+        display: none !important;
+      }   
+    }
+
+    @media screen and (max-width: 350px){
+      .no{
+        margin-top: -7% !important;
+        font-size: 16px !important;
+        float: right !important;
+        margin-right: -24% !important;
+      }
+      .num{
+        width: 35% !important;
+      }
+      .fecha{
+        margin-top: -136.4%!important;
+        width: 47% !important;
+      }
+      .tel{
+        width: 47% !important;
+        margin-top: -107.2% !important;
+      }
+      .cont{
+        width: 46% !important;
+        margin-top: -78% !important;
+      }
+      .ot{
+        width: 47% !important;
+        margin-top: -39.4% !important;
+      }
+      .fr{
+        margin-top: -32% !important;
+
+      }
+      .fr1{
+        margin-top: -29.9% !important;
+      }
+
+      .btn-default{
+        margin-left: 6% !important;
+      }
+    }
+  </style>
+  </div>
+</div>

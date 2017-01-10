@@ -1,0 +1,1201 @@
+<div class="Header-user"></div>
+
+  <a class="logo"><img style="text-align: center;margin-left: 24%;margin-bottom: -40em;width:42%;opacity: 0.1;" class="logo" src="./app/img/img.png"></a>
+ 
+    <div class="contenedor-formulario" style="background-color: #F2F3F5">
+
+      <div class="wrap" style="padding-bottom: 2%">
+
+        <h1 class="h" style="margin-bottom:2%;font-family: serif; font-weight: 700; letter-spacing: 3px;border-bottom: 1px solid black;border-top:1px solid black;background: #3E91C1;color: white;-webkit-box-shadow: -13px 14px 17px 10px rgba(0,0,0,0.49);-moz-box-shadow: -13px 14px 17px 10px rgba(0,0,0,0.49);box-shadow: -5px 11px 21px 2px rgba(0,0,0,0.49); margin-top: -1.1%;">FICHA DE INGRESO DE EQUIPOS </h1>
+
+
+
+
+<!-- <div ng-controller="AppCtrl" layout="column" style="width: 9%;padding: 0;margin-left: 45%;" ng-cloak>
+  <section layout="row" flex>
+
+    <md-content flex layout-padding style="padding:0">
+
+      <div layout="column" layout-align="top center" style="padding:0;background:#F2F3F5">
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md >
+            Toggle left
+          </md-button>
+        </div>
+
+        <div>
+          <md-button  ng-click="toggleRight()" 
+            ng-hide="isOpenRight()"
+            class="md-primary" style="margin:0;padding:0;color:#575758;background:gainsboro" href="#/ordenCtrl">
+            Ultimo No. De Orden.
+          </md-button>
+        </div>
+      </div>
+
+      <div flex style="padding:0"></div>
+
+    </md-content>
+
+ <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" style="height:66em">
+
+      <md-toolbar class="md-theme-light">
+        <h1 style="background:#3E91C1;box-shadow: -4px 13px 30px -7px rgba(0,0,0,0.49);" class="md-toolbar-tools">No. de ordenes creadas</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <form>
+          <md-input-container>
+            <form class="f">
+              <table class="table-bordered table-hover color-t Table-container-serviciosPark" style="width:100% !important;">
+                <thead style="background-color:#EEF0F3">
+                  <div class="col-md-3">
+                    <tr class="color-campo">
+                      <td style="width:1%" class="Table-container-serviciosPark-elements Encabezados">Número de Orden</td>
+                    </tr>
+                  </div>
+                </thead>
+
+                <tbody class="Color-resultados">
+                  <tr ng-repeat="ingresos in vm.ingresos | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | filter:vm.busqueda">
+                    <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{uingresos.numOrden}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </md-input-container>
+        </form>
+
+        <md-button style="margin-left:35%" ng-click="close()" class="md-primary">Cerrar</md-button>
+      </md-content>
+
+  </md-sidenav>
+  </section>
+</div> -->
+      
+
+        <form name="projectForm"  class="for"  ng-submit="vm.create()" style="width: 37%;margin-left: 31.5%">   
+
+            <div layout-gt-xs="row" style="float:left;width:27%;margin-top:2%">
+              <div flex-gt-xs>
+                <md-datepicker style="background:none;color:#292c2f" ng-model="vm.ingresos.fechaIngreso" ng-model="myDate" md-placeholder="Ingrese Fecha *"></md-datepicker>
+              </div>
+            </div>
+
+           <md-input-container class="md-block" style="float: left;margin-left: 1em;width:28%" >
+              <label>Hora de Ingreso *</label>
+                <input name="HoraIn" ng-model="vm.ingresos.horaIngreso" type="time"><span style="top:-23px;margin-left:74%;color:#292c2f" class="glyphicon glyphicon-time"></span>
+                  <div ng-messages="projectForm.HoraIn.$error">
+                    <div ng-message-exp="['required','pattern','md-maxlength']">Introduzca una Hora Valida</div>
+                  </div>
+            </md-input-container>
+                    
+           <md-input-container class="md-block" style="float: left;width: 36%;margin-right:1em;height:4em">
+              <label>Nombre del Cliente *</label>
+                <input md-maxlength="45" name="NameOwn" ng-model="vm.ingresos.cliente"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,45}$/"><span style="color:#292c2f" class="glyphicon glyphicon-home"></span>
+                  <div ng-messages="projectForm.NameOwn.$error">
+                    <div ng-message-exp="['required','pattern','md-maxlength']">Este campo es requerido. Nombre del Cliente Máx. 45 Caracteres.</div>
+                  </div>
+            </md-input-container>
+
+     <md-input-container class="md-block" style="float: left;margin-right: 1em;width: 58%;margin-left:1em">
+              <label>Contacto *</label>
+                <input md-maxlength="45" name="NameCon" ng-model="vm.ingresos.contacto"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,45}$/"><span style="color:#292c2f" class="glyphicon glyphicon-user"></span>
+                  <div ng-messages="projectForm.NameCon.$error">
+                    <div ng-message-exp="['required','pattern','md-maxlength']">Este campo es requerido. Nombre del Contacto Máx. 45 caracteres.</div>
+                  </div>
+            </md-input-container>
+
+
+             <md-input-container class="md-block" style="float: left;width: 31%;margin-right: 1em;">
+              <label>Número de Orden *</label>
+                <input md-maxlength="9" name="NumEq" ng-model="vm.ingresos.numOrden"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                  <div ng-messages="projectForm.NumEq.$error">
+                    <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números.</div>
+                  </div>
+            </md-input-container> 
+
+    
+               <md-input-container class="md-block" style="float: left;width: 45%;margin-right:1em;height:58px;margin-left:1em">
+              <label>Teléfono *</label>
+                <input md-maxlength="45" name="Tel" ng-model="vm.ingresos.telefono"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-., c ,_]{3,45}$/"><span style="top:-27px;margin-left:84%;color:#292c2f" class="glyphicon glyphicon-earphone"></span>
+                  <div ng-messages="projectForm.Tel.$error">
+                    <div ng-message-exp="['required','pattern','md-maxlength']">Campo requerido.</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" style="float: left;width: 44%;">
+              <label>Dirección *</label>
+                <input md-maxlength="45" name="NameDir" ng-model="vm.ingresos.direccion">
+                  <div ng-messages="projectForm.NameDir.$error">
+                    <div ng-message-exp="['required','md-maxlength']">Ingrese Dirección Valida</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="Section-calificar-result-label-container" style="float: left;margin-right: 1em;width: 43%;height:4em;margin-left:1em">
+              <label>Correo Electrónico</label>
+                <input type="email" name="email" md-no-asterisk ng-pattern="/^[a-zA-Z0-9-.\!¡#\$%\'\*+\/=?\^_\`{\|}\~-]{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}\.?([a-zA-Z]{2,})?$/" value="" ng-model="vm.ingresos.correo">
+                  <div ng-messages="projectForm.email.$error" role="alert" multiple>
+                    <div ng-message="pattern">El correo electrónico no es valido:<br> example@example.com</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" style="float: left;width: 22%;margin-right: 1em;height:4em">
+              <label>Número de Equipos</label>
+                <input md-maxlength="9" name="NumO" ng-model="vm.ingresos.numeroEquipos"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                  <div ng-messages="projectForm.NumO.$error">
+                    <div ng-message-exp="['required','pattern','md-maxlength']">Ingrese solo números.</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" style="float: left; width: 22%;">
+              <label>Equipos Reposición</label>
+                <input md-maxlength="9" name="EqRepo" ng-model="vm.ingresos.equiposRep"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                  <div ng-messages="projectForm.EqRepo.$error">
+                    <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números positivos.</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" style="float: left; margin-right: 2%;margin-left:1em">
+              <label>Numero de Fundas</label>
+                <input md-maxlength="9" name="EqRepo" ng-model="vm.ingresos.numeroFundas"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                  <div ng-messages="projectForm.EqRepo.$error">
+                    <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números positivos.</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" style="float: left;width: 25%; margin-right: 2%;margin-top:18px">
+              <label>Numero de Estuches</label>
+                <input md-maxlength="9" name="EqRepo" ng-model="vm.ingresos.numeroEstuches"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                  <div ng-messages="projectForm.EqRepo.$error">
+                    <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números positivos.</div>
+                  </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" style="float: left;margin-right: 5%;width:35.2%">
+              <label>Transportador *</label>
+                <input md-maxlength="45" name="Trans" ng-model="vm.ingresos.transportador"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,45}$/"><span style="color:#292c2f" class="glyphicon glyphicon-plane"></span>
+                  <div ng-messages="projectForm.Trans.$error">
+                    <div ng-message-exp="['required','pattern','md-maxlength']">Campo requerido.</div>
+                  </div>
+            </md-input-container>    
+
+            <md-input-container class="md-block" style="float: left;width: 91%;margin-left:1em">
+              <label>Observaciones</label>
+                <input md-maxlength="200" name="Trans" ng-model="vm.ingresos.observaciones"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-., c ,_]{3,200}$/"><span style="color:#292c2f;top: -23px;margin-left: 91%;" class="glyphicon glyphicon-list-alt"></span>
+            </md-input-container>             
+
+
+            <div class="form-group" style="float: left; width: 38%;margin-left:1em" ><label style="font-size: 15px;">Tipo equipo</label>
+              <select style="background: #E6E9EF;" class="form-control" ng-model="vm.ingresos.otros">
+                <option ng-value="">E-Guard</option>
+                <option ng-value="">Smart-Pilot</option>
+                <option ng-value="">Sensor de Giro</option>
+                <option ng-value="">Homologadas</option>
+                <option ng-value="">Otro</option>
+              </select>
+            </div> 
+
+            <div class="city" style="float: left;margin-top: 0%; width: 36%;margin-left:3%" class="form-group" ><label>Escoge la Ciudad *</label>
+              <select style="background: #E6E9EF;" ng-model="vm.ingresos.idCiudad" class="form-control" ng-options="ciudades as ciudades.nombreCiudad for ciudades in vm.ciudades" required>
+                <option ng-value="">Seleccione una ciudad ...</option>
+              </select>
+            </div>
+
+            <md-button ng-disabled="!projectForm.$valid" style="margin-left: 42%; margin-top: -7.5%;box-shadow: -6px 6px 11px -1px rgba(0,0,0,0.49); background:grey" class="btn btn-primary" type="submit" name="name" value="Guardar">Guardar</md-button>  
+
+          </form>
+
+      </div>
+
+    </div>
+
+<style>
+
+.md-primary:hover{
+  background: #575758 !important;
+  transition: 1s !important;
+  color: white !important;
+}
+.md-sidenav-backdrop{
+  height: 66em !important;
+} 
+
+  @media screen and (max-width: 1914px){
+    .numes{
+      width: 23%;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+  @media screen and (max-width: 1907px){
+    .numes{
+      margin-top: -3.2%
+    }
+
+    .city{
+      margin-top: 0% !important
+    }
+
+    .fed{
+      width: 31% !important
+    }
+    .for{
+      width: 39% !important
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+
+  }
+
+  @media screen and (max-width: 1832px){
+    .numes{
+      margin-top: -3.2%
+    }
+
+    .fed{
+      width: 32% !important
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+   
+
+  }
+
+  @media screen and (max-width: 1821px){
+    .numes{
+      margin-top: -3.2%
+    }
+
+    .hi{
+      width: 33% !important;
+    }
+
+    .con{
+      width: 48% !important;
+    }
+  
+    .dir{
+      width: 48% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+    .btn-primary{
+      margin-top: -7% !important;
+    }
+  
+    .equip{
+      width: 25% !important;
+    }
+  
+    .ot{
+      width: 34.5% !important;
+    }
+  
+    
+  }
+
+  @media screen and (max-width: 1794px){
+    .numes{
+      margin-top: -3.2%;
+    }
+
+    .wrap{
+      padding-bottom: 4% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+
+    .fed{
+      width: 33.5% !important;
+    }
+
+    .hi{
+      width: 34% !important;
+    }
+
+    .con{
+      width: 48.5% !important;
+    }
+
+    .dir{
+      width: 48.5% !important;
+    }
+
+    .equip{
+      width: 25.5% !important;
+    }
+
+    .ot{
+      width: 35% !important;
+    }
+
+    
+    .h{
+      margin-top: -1.7% !important;
+    }
+    .btn-primary{
+      margin-top: -7% !important;
+    }
+    .for{
+      margin-left: 31% !important;
+      width: 41% !important;
+    }
+
+    .img4{
+      margin-left: 65.9% !important;
+    }
+  }
+
+  @media screen and (max-width: 1743px){
+    .numeq{
+      width: 24% !important;
+    }
+
+    .city{
+      margin-top: 0% !important
+    }
+
+    .hi{
+      width: 34% !important;
+    }
+
+    .con{
+      width: 49.5% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+    .btn-primary{
+      margin-top: -7% !important;
+    }
+
+    .dir{
+      width: 49.5% !important;
+    }
+
+    .img4{
+      margin-left: 65.9% !important;
+    }
+  }
+
+  @media screen and (max-width: 1720px){
+    .numeq{
+      width: 24% !important;
+    }
+
+    .city{
+      margin-top: -0% !important
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+    .btn-primary{
+      margin-top: -7% !important;
+    }
+
+    .img4{
+      margin-left: 65.8% !important;
+    }
+    .for{
+      width: 43% !important;
+      margin-left: 31% !important;
+    }
+
+
+  }
+
+  @media screen and (max-width: 1697px){
+    .numeq{
+      width: 24% !important;
+    }
+
+    .city{
+      margin-top: 0% !important
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+    .btn-primary{
+      margin-top: -7% !important;
+    }
+
+  }
+
+  @media screen and (max-width: 1687px){
+    .numeq{
+      width: 25% !important;
+    }
+
+    .city{
+      margin-top: -12.8% !important;
+    }
+
+    .numes{
+      width: 27% !important;
+    }
+
+    .ot{
+      width: 32% !important;
+    }
+
+    .city{
+      margin-top: -10.5% !important;
+    }
+
+    .equip{
+      width: 25% !important;
+    }
+
+    .for{
+      width: 43% !important;
+      margin-left: 31% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .numf{
+      width: 29% !important;
+    }
+
+    .ce{
+      width: 41% !important;
+    }
+
+    .img4{
+      margin-left: 65.6% !important;
+      margin-top: -47% !important;
+    }
+  }
+
+  @media screen and (max-width: 1621px){   
+    .numo{
+      width: 23% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+
+    .fed{
+      width: 33.5% !important;
+      margin-top: -10.5% !important;
+    }
+    .for{
+      width: 44% !important;
+      margin-left: 30% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .f{
+      width: 43% !important;
+    }
+  }
+
+  @media screen and (max-width: 1618px){
+    .trans{
+      margin-right: 4% !important;
+    }
+  }
+
+
+  @media screen and (max-width: 1605px){
+    .trans{
+      margin-right: 4% !important;
+    }
+    
+    .for{
+      width: 45% !important;
+      margin-left: 29% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+     
+    .img3{
+      margin-left: -2% !important;
+      margin-top: -3% !important;
+    }
+    
+    .img4{
+      margin-left: 65.5% !important;
+      margin-top: -48% !important;
+    }
+    
+    .img5{
+      margin-left: 64.4% !important;
+      margin-top: -28.5% !important;
+    }
+    
+    .img6{
+      margin-left: 63% !important;
+      margin-top: -10.5% !important;
+    }
+  }
+
+  @media screen and (max-width: 1561px){
+    .for{
+      width: 46% !important;
+    }
+  
+    .img1{
+      margin-left: 65.4% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+
+  @media screen and (max-width: 1516px){
+    .for{
+      width: 47% !important;
+      margin-left: 28% !important;
+    }
+
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+    .img1{
+      margin-left: -5% !important;
+      margin-top: -49% !important;
+      width: 26% !important;
+    }
+   
+    .img2{
+      margin-top: -29% !important;
+      margin-left: -4% !important;
+      width: 26% !important;
+    }
+   
+    .img3{
+      width: 26% !important;
+      margin-top: -9% !important;
+      margin-left: -2% !important;
+    }
+   
+    .img4{
+      width: 26% !important;
+      margin-top: -57% !important;
+      margin-left: 68.4% !important;
+    }
+   
+    .img5{
+      width: 26% !important;
+      margin-left: 67% !important;
+      margin-top: -37% !important;
+    }
+   
+    .img6{
+      width: 26% !important;
+      margin-top: -16.5% !important;
+      margin-left: 66% !important;
+    }
+  }
+   @media screen and (max-width: 1493px){
+    .for{
+      width: 47% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }  
+  }
+
+  @media screen and (max-width: 1476px){
+    .for{
+      width: 48% !important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+   @media screen and (max-width: 1461px){
+    .for{
+      width: 49% !important;
+      margin-left: 28% !important;
+    }
+    .equip {
+    width: 26% !important;
+    }
+    .numeq {
+    width: 24% !important;
+    }
+    .equip {
+    width: 26% !important;
+}
+.h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+  @media screen and (max-width: 1437px){
+    .for{
+      width: 49% !important;
+      margin-left: 29% !important;
+    }
+    .equip {
+    width: 26% !important;
+    }
+    .numeq {
+    width: 24% !important;
+    }
+    .equip {
+    width: 26% !important;
+}
+.h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+   @media screen and (max-width: 1435px){
+    .for{
+      width: 50.5% !important;
+      margin-left: 27% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+  @media screen and (max-width: 1430px){
+    .for{
+      width: 50.5% !important;
+      margin-left: 26% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+  @media screen and (max-width: 1374px){
+    .for{
+      width: 51.5% !important;
+      margin-left: 26% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+   @media screen and (max-width: 1361px){
+    .for{
+      width: 52.5% !important;
+      margin-left: 26% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+  @media screen and (max-width: 1333px){
+    .for{
+      width: 53.5% !important;
+      margin-left: 26% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+  @media screen and (max-width: 1312px){
+    .for{
+      width: 53.5% !important;
+      margin-left: 25% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -1.7% !important;
+    }
+  }
+
+  @media screen and (max-width: 1302px){
+    .for{
+      width: 55.5% !important;
+      margin-left: 25% !important;
+    }
+    .city{
+      margin-top: 0% !important;
+    }
+    .btn-primary{
+      margin-top: -7%!important;
+    }
+    .h{
+      margin-top: -2% !important;
+    }
+
+    .img1{
+      margin-left: -6% !important;
+      margin-top: -55% !important;
+    }
+    
+    
+  }
+
+  @media screen and (max-width: 1272px){
+    .for{
+      width: 56.5% !important;
+      margin-left: 24% !important;
+    }
+
+    .img1{
+      width: 25% !important;
+      margin-left: -7% !important;
+      margin-top: -64% !important;   
+    }
+    
+    .img2{
+      margin-top: -41% !important;
+      margin-left: -5% !important;
+      width: 25% !important;
+    }
+
+    .img3{
+      margin-top: -18% !important;
+      margin-left: -5% !important;
+      width: 25% !important;
+    }
+    
+    .img4{
+      margin-top: -74% !important;
+      margin-left: 68.4% !important;
+      width: 25% !important;
+    }
+
+    .img5{
+      margin-left: 67% !important;
+      width: 25% !important;
+      margin-top: -50% !important;
+    }
+
+    .img6{
+      margin-top: -26.5% !important;
+      margin-left: 66% !important;
+      width: 25% !important;
+    }
+  }
+
+   @media screen and (max-width: 1244px){
+    .for{
+      width: 57.5% !important;
+      margin-left: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1216px){
+    .for{
+      width: 58.5% !important;
+      margin-left: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1190px){
+    .for{
+      width: 60.5% !important;
+      margin-left: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1165px){
+    .for{
+      width: 61.5% !important;
+      margin-left: 20.5% !important;
+    }
+
+    .img1{  
+      width: 25% !important;
+      margin-left: -7% !important;
+      margin-top: -66% !important;
+    }
+
+    .img2 {
+      margin-top: -41% !important;
+      margin-left: -7% !important;
+      width: 25% !important;
+    }
+
+    .img3 {
+      margin-top: -16% !important;
+      margin-left: -7% !important;
+      width: 25% !important;
+    }
+
+    .img4 {
+      margin-top: -77% !important;
+      margin-left: 68.4% !important;
+      width: 25% !important;
+    }
+
+    .img5 {
+      margin-left: 68.4% !important;
+      width: 25% !important;
+      margin-top: -51% !important;
+    }
+
+    .img6 {
+      margin-top: -26.5% !important;
+      margin-left: 67.6% !important;
+      width: 25% !important;
+    }
+  }
+
+  @media screen and (max-width: 1141px){
+    .for{
+      width: 62.5% !important;
+      margin-left: 21% !important;
+    }
+
+    .img1{  
+      width: 23% !important;
+      margin-left: -7% !important;
+      margin-top: -75% !important;
+    }
+
+    .img2 {
+      margin-top: -48% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img3 {
+      margin-top: -21% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+    
+    .img4 {
+      margin-top: -87% !important;
+      margin-left: 69.4% !important;
+      width: 23% !important;
+    }
+
+    .img5 {
+      margin-left: 69.4% !important;
+      width: 23% !important;
+      margin-top: -59% !important;
+    }
+    
+    .img6 {
+      margin-top: -31.5% !important;
+      margin-left: 69.6% !important;
+      width: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1118px){
+    .for{
+      width: 63.5% !important;
+      margin-left: 20.5% !important;
+    }
+
+    .img1{  
+      width: 23% !important;
+      margin-left: -7% !important;
+      margin-top: -75% !important;
+    }
+
+    .img2 {
+      margin-top: -48% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img3 {
+      margin-top: -21% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+    
+    .img4 {
+      margin-top: -87% !important;
+      margin-left: 69.4% !important;
+      width: 23% !important;
+    }
+
+    .img5 {
+      margin-left: 69.4% !important;
+      width: 23% !important;
+      margin-top: -59% !important;
+    }
+    
+    .img6 {
+      margin-top: -31.5% !important;
+      margin-left: 69.6% !important;
+      width: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1096px){
+    .for{
+      width: 66.9% !important;
+      margin-left: 18% !important;
+    }
+
+    .img1{  
+      width: 23% !important;
+      margin-left: -7% !important;
+      margin-top: -75% !important;
+    }
+
+    .img2 {
+      margin-top: -48% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img3 {
+      margin-top: -21% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+    
+    .img4 {
+      margin-top: -87% !important;
+      margin-left: 69.4% !important;
+      width: 23% !important;
+    }
+
+    .img5 {
+      margin-left: 69.4% !important;
+      width: 23% !important;
+      margin-top: -59% !important;
+    }
+
+    .img6 {
+      margin-top: -31.5% !important;
+      margin-left: 69.6% !important;
+      width: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1058px){
+    .for{
+      width: 67.9% !important;
+      margin-left: 18.5% !important;
+    }
+
+    .img1{  
+      width: 23% !important;
+      margin-left: -7% !important;
+      margin-top: -75% !important;
+    }
+
+    .img2 {
+      margin-top: -48% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img3 {
+      margin-top: -21% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+    
+    .img4 {
+      margin-top: -87% !important;
+      margin-left: 69.4% !important;
+      width: 23% !important;
+    }
+
+    .img5 {
+      margin-left: 69.4% !important;
+      width: 23% !important;
+      margin-top: -59% !important;
+    }
+    
+    .img6 {
+      margin-top: -31.5% !important;
+      margin-left: 69.6% !important;
+      width: 23% !important;
+    }
+  }
+
+
+  @media screen and (max-width: 1038px){
+    .for{
+      width: 68.9% !important;
+      margin-left: 18% !important;
+    }
+
+    .img1{  
+      width: 23% !important;
+      margin-left: -7% !important;
+      margin-top: -75% !important;
+    }
+
+    .img2 {
+      margin-top: -48% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img3 {
+      margin-top: -21% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img4 {
+      margin-top: -87% !important;
+      margin-left: 69.4% !important;
+      width: 23% !important;
+    }
+
+    .img5 {
+      margin-left: 69.4% !important;
+      width: 23% !important;
+      margin-top: -59% !important;
+    }
+
+    .img6 {
+      margin-top: -31.5% !important;
+      margin-left: 69.6% !important;
+      width: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1018px){
+    .for{
+      width: 69.9% !important;
+      margin-left: 17% !important;
+    }
+
+    .img1{  
+      width: 23% !important;
+      margin-left: -7% !important;
+      margin-top: -75% !important;
+    }
+
+    .img2 {
+      margin-top: -48% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+
+    .img3 {
+      margin-top: -21% !important;
+      margin-left: -7% !important;
+      width: 23% !important;
+    }
+    .img4 {
+      margin-top: -87% !important;
+      margin-left: 69.4% !important;
+      width: 23% !important;
+    }
+
+    .img5 {
+      margin-left: 69.4% !important;
+      width: 23% !important;
+      margin-top: -58% !important;
+    }
+    
+    .img6 {
+      margin-top: -31.5% !important;
+      margin-left: 69.6% !important;
+      width: 23% !important;
+    }
+  }
+
+  @media screen and (max-width: 1000px){
+    .numo,.fei,.hi,.nc,.con,.tel,.dir,.ce,.numeq,.equip,.numf,.numes,.ot,.trans,.obs,.fed,.dg,.city{
+      width: 270% !important;
+      margin-left: -90% !important
+    }
+
+    .btn{
+      margin-left: 10% !important;
+      margin-top: 20% !important
+    }
+    
+    .obs{
+      height: 12em !important;
+    }
+
+    .city{
+      margin-top: 10px !important;
+    }
+
+    .for{
+      width: 30% !important;
+      margin-left: 37% !important;
+    }
+
+    .img1,.img2,.img3,.img4,.img5,.img6{
+      display: none;
+    }
+
+    @media screen and (max-width: 350px){
+
+      .h{
+        background: none !important;
+        color: black !important;
+        padding-right: 20% !important;
+        padding-left: 22% !important;
+        padding-bottom: 6% !important;
+      }
+
+    }
+
+
+  }
+
+</style>
+

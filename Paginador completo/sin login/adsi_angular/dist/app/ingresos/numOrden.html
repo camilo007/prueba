@@ -1,0 +1,74 @@
+<h1>hola desde numOrden</h1>
+
+
+<div ng-controller="AppCtrl" layout="column" style="width: 9%;padding: 0;margin-left: 45%;" ng-cloak>
+  <section layout="row" flex>
+
+    <md-content flex layout-padding style="padding:0">
+
+      <div layout="column" layout-align="top center" style="padding:0;background:#F2F3F5">
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md >
+            Toggle left
+          </md-button>
+        </div>
+
+        <div>
+             <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary" style="margin:0;padding:0;color:#575758;background:gainsboro"><a href="#/numOrden"></a>
+            Ultimo No. De Orden.
+          </md-button>
+        </div>
+      </div>
+
+      <div flex style="padding:0"></div>
+
+    </md-content>
+
+ <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" style="height:66em">
+
+      <md-toolbar class="md-theme-light">
+        <h1 style="background:#3E91C1;box-shadow: -4px 13px 30px -7px rgba(0,0,0,0.49);" class="md-toolbar-tools">No. de ordenes creadas</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <form>
+          <md-input-container>
+            <form class="f">
+              <table class="table-bordered table-hover color-t Table-container-serviciosPark" style="width:100% !important;">
+                <thead style="background-color:#EEF0F3">
+                  <div class="col-md-3">
+                    <tr class="color-campo">
+                      <td style="width:1%" class="Table-container-serviciosPark-elements Encabezados">Número de Orden</td>
+                    </tr>
+                  </div>
+                </thead>
+
+                <tbody class="Color-resultados">
+                  <tr ng-repeat="num in vm.num | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | filter:vm.busqueda">
+                    <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{num.numOrden}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </md-input-container>
+        </form>
+
+        <md-button style="margin-left:35%" ng-click="close()" class="md-primary">Cerrar</md-button>
+      </md-content>
+
+  </md-sidenav>
+  </section>
+</div>
+      
+
+
+
+
+
+
+
+
+

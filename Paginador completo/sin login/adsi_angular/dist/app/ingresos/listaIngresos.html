@@ -1,0 +1,190 @@
+<div style="background: #F2F3F5;">
+    <a class="logo"><img style="text-align: center;margin-left: 24%;margin-bottom: -40em;width:42%;opacity: 0.1;" class="logo" src="./app/img/img.png"></a>
+        <input type="text" style="width: 35%; margin-left: 34%;margin-top:2em" ng-model="vm.busqueda" class="form-control " placeholder="Buscar">
+        <span class="glyphicon glyphicon-search icono" style="margin-left: 67%;margin-top: 1.5%;color: #646AAB"></span>
+  
+<div class="panel panel-default" style="margin-bottom:0%">
+    <div class="panel-heading" style="font-size:20px;text-align:center;font-weight:700;background:#3E91C1;color:white;border-bottom: 1px solid black;border-top: 1px solid black;font-family:serif;letter-spacing: 1px">LISTA DE INGRESOS</div>
+<form class="f">
+    <table class="table-bordered table-hover color-t Table-container-serviciosPark" style="width:100% !important;">
+        <thead style="background-color:#EEF0F3">
+            <div class="col-md-3">
+                <tr class="color-campo">
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Número de Orden</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Fecha de Ingreso</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Hora de Ingreso</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Nombre del Cliente</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Nombre del Contacto</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Teléfono</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Dirección</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Correo Electronico</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Numero de Equipos</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Equipos Reposición</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Número de fundas</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Número de Estuches</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Tipos Equipos</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Transportador</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Observaciones</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Fecha de Despacho</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Despacho Guía</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Salida de Mantenimiento</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Ciudad</td>
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Editar</td>
+                   <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Eliminar</td>
+
+        
+
+                    <td style="border-bottom: 1px solid #111973;" class="Table-container-serviciosPark-elements Encabezados">Generar Acta Ingreso</td>
+				</tr>
+             </div>
+        </thead>
+
+        <tbody class="Color-resultados">
+            <tr ng-repeat="ingresos in vm.ingresos | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | filter:vm.busqueda | orderBy:'numOrden':true"> <!--Se le agrego el "orderBy" para
+            organizar los elementos de la tabla el ultimo registro hecho 
+            sera el primer registro que se muestre en la tabla-->
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.numOrden}}</td>
+                <td style="text-transform:lowercase;width:5%" class="Table-container-serviciosPark-elements">{{ingresos.fechaIngreso | date:'yyyy-MM-dd'}}</td>
+                <td style="text-transform:lowercase;width:4%" class="Table-container-serviciosPark-elements">{{ingresos.horaIngreso | date:"shortTime"}}</td>
+                <td style="text-transform:uppercase" class="Table-container-serviciosPark-elements">{{ingresos.cliente}}</td>
+                <td style="text-transform:capitalize;width:7%" class="Table-container-serviciosPark-elements">{{ingresos.contacto}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.telefono}}</td>
+                <td style="text-transform:lowercase;width:6%" class="Table-container-serviciosPark-elements">{{ingresos.direccion}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.correo}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.numeroEquipos}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.equiposRep}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.numeroFundas}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.numeroEstuches}}</td>
+                <td style="text-transform:capitalize;width:6%" class="Table-container-serviciosPark-elements">{{ingresos.otros}}</td>
+                <td style="text-transform:uppercase" class="Table-container-serviciosPark-elements">{{ingresos.transportador}}</td>
+                <td style="text-transform:capitalize" class="Table-container-serviciosPark-elements">{{ingresos.observaciones}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.fechaDespacho | date:'yyyy/MM/dd'}}</td>
+                <td style="text-transform:lowercase" class="Table-container-serviciosPark-elements">{{ingresos.despachoGuia}}</td>
+                <td ><md-switch ng-model="ingresos.estado" aria-label="Switch 6" ng-change="vm.onChange(ingresos.idIngreso)">Estado {{ingresos.estado}}</md-switch></td>
+                <td class="Table-container-serviciosPark-elements">{{ingresos.idCiudad.nombreCiudad}}</td>
+                <td class="Table-container-serviciosPark-elements"><a href="#/updateIngresos/{{ingresos.idIngreso}}"><span style="margin: 0;top: 0%;color: black;" class="glyphicon glyphicon-transfer"></span></a></td>
+
+
+
+
+                <td class="Table-container-serviciosPark-elements"><a ng-click="vm.eliminar(ingresos.idIngreso)"><span style="margin: 0;top: 0%;color: black;" class="glyphicon glyphicon-floppy-remove"></span></a></td>
+
+<!--<td><div class="container"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button><div class="modal fade" id="myModal" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">¿Seguro que desea eliminar este registro de ingreso {{ ingresos.idIngreso }}?</h4></div>
+ 
+<div class="modal-footer"><a ng-click="vm.eliminar(ingresos.idIngreso)" class="btn btn-default" data-dismiss="modal">Si</a><button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+</div></div></div></div></div></body></td>
+
+
+
+<td ng-controller="AppCtrl" layout="row" ng-cloak><div layout="column" layout-align="center start" layout-padding flex><div class="dialog-demo-content" layout="column" layout-align="center center" style="width:100%"><md-button class="md-primary md-raised edgePadding" ng-click="openFromLeft()">
+<md-button ng-click="vm.eliminar(ingreso.idIngreso)">gsdgfsd</md-button></md-button></div></div>	
+</td>-->
+
+
+
+
+                <td class="Table-container-serviciosPark-elements"><a href="#/actaIngresos/{{ingresos.idIngreso}}"><span style="margin: 0;top: 0%;color: black;" class="glyphicon glyphicon-book"></span></a></td>
+
+			 </tr>
+        </tbody>
+    </table>
+</form>
+
+
+
+</div>
+
+</div>
+ <md-table-pagination style="margin-bottom:0%;margin-top:3%" class="Paginador" md-limit= "vm.query.limit" md-limit-options="[5,10,20,50,100]" md-page="vm.query.page" md-label="{page: 'Página: ', rowsPerPage: 'Filas por página: ', of: 'de'}" md-total="{{vm.ingresos.length}}"></md-table-pagination> 
+
+
+
+<style>
+
+.f{
+    overflow:scroll;
+     height:28em;
+     width:100%;
+}
+    @media screen and (max-width: 1280px ){
+     .panel-heading{
+       width: 100% !important;
+     }
+
+     .alert{
+       margin-left: 23% !important;
+       width: 58% !important;
+       font-size: 15px !important;
+     }
+
+     .btn-primary{
+       margin-left: 47% !important;
+     }
+    }
+
+    @media screen and (max-width: 1600px ){
+     .glyphicon{
+       margin-top: 1.7% !important;
+     }
+    }
+
+    @media screen and (max-width: 1500px ){
+     .glyphicon{
+       margin-top: 1.9% !important;
+     }
+    }
+
+    @media screen and (max-width: 1300px ){
+     .glyphicon{
+       margin-top: 2.1% !important;
+     }
+    }
+
+    @media screen and (max-width: 1200px ){
+     .glyphicon{
+       margin-top: 2.3% !important;
+     }
+    }
+    .md-text,.md-select-icon{
+        color: #3E91C1 !important;
+    }
+
+     @media (max-width: 350px){
+      
+      .btn-primary{
+        margin-left: 32% !important;
+      }
+
+      .form-control{
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+      .glyphicon{
+        margin-left: 95% !important;
+        margin-top: 8.5% !important;
+      }
+      .panel-heading{
+        width: 459% !important;
+      }
+
+      .paginador{
+            width: 96% !important;
+            overflow: visible !important;
+        }
+       .md-table-pagination{
+        padding: 0 !important;
+       } 
+
+        .md-icon-button{
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+       
+    }
+</style>
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+
+<head>
+		<!--<link rel="stylesheet" type="text/css" href="lib/css/foundation.min.css">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Ficha Ingresos</title>
+
+    <!-- build:css css/style.min.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="lib/ng-table/dist/ng-table.min.css" />
+    <link rel="stylesheet" href="lib/angular-material-data-table/dist/md-data-table.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/normalize.css">
+	  
+
+    <!-- <link rel="stylesheet" href="lib/angular-material/angular-material.css" /> -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/footer/footer.css">
+    <link rel="stylesheet" href="/app/header/header.css">
+    <link rel="stylesheet" href="/app/ingresos/ingresos.css">
+    <link rel="stylesheet" href="/app/inicio/inicio.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+</head>
+
+<body >
+    <encabezado></encabezado>
+
+    <!--<div ui-view="encabezado"></div>-->
+    <div ui-view=""></div>
+
+    <div ui-view="listaIngresos"></div>
+    <div ui-view="createIngresos"></div>
+    <div ui-view="updateIngresos"></div>
+    <div ui-view="actaIngresos"></div>
+    <div ui-view="ordenCtrl"></div>
+
+    <!-- <div ui-view="listaMarcas"></div>
+    <div ui-view="createMarcas"></div>
+    <div ui-view="updateMarcas"></div> -->
+   <!--<div ui-view="piepagina"></div>-->
+
+   <piepagina></piepagina>
+
+    <!-- build:js js/vendor.min.js -->
+    <!-- bower:js -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- <script src="lib/angular-material/angular-material.js"></script> -->
+
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/ng-table/dist/ng-table.min.js"></script>
+    <script src="lib/angular-material-data-table/dist/md-data-table.js"></script>
+
+
+    <!-- <script src="lib/angular-chat/angular-chat.js"></script> 
+    <script src="lib/angular-chat/angular-chat-config.js"></script> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js js/app.min.js -->
+    <!-- inject:js -->
+    <script src="/app/app.module.js"></script>
+    <script src="/app/templates.js"></script>
+    <script src="/app/footer/app.directivas.js"></script>
+    <script src="/app/footer/app.module.js"></script>
+    <script src="/app/config/app.constantes.js"></script>
+    <script src="/app/header/app.controller.js"></script>
+    <script src="/app/header/app.directivas.js"></script>
+    <script src="/app/header/app.module.js"></script>
+    <script src="/app/ingresos/app.controller.js"></script>
+    <script src="/app/ingresos/app.directivas.js"></script>
+    <script src="/app/ingresos/app.module.js"></script>
+    <script src="/app/ingresos/app.route.js"></script>
+    <script src="/app/ingresos/app.services.js"></script>
+    <script src="/app/inicio/app.directivas.js"></script>
+    <script src="/app/inicio/app.module.js"></script>
+    <script src="/app/inicio/app.route.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+
+</html>

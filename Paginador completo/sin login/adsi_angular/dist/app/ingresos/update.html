@@ -1,0 +1,605 @@
+<div class="Header-user"></div>
+ <a class="logo"><img style="text-align: center;margin-left: 24%;margin-bottom: -40em;width:42%;opacity: 0.1;" class="logo" src="./app/img/img.png"></a>
+  <div class="contenedor-formulario">
+    <div class="wrap" style="background-color:#F2F3F5">
+      <h1 class="h" style="margin-bottom:2%;font-family: serif; font-weight: 700; letter-spacing: 3px;border-bottom: 1px solid black;border-top:1px solid black;background: #3E91C1;color: white;
+-webkit-box-shadow: -13px 14px 17px 10px rgba(0,0,0,0.49);-moz-box-shadow: -13px 14px 17px 10px rgba(0,0,0,0.49);box-shadow: -5px 11px 21px 2px rgba(0,0,0,0.49);margin-top: -20px;">ACTUALIZAR FICHA DE INGRESO DE EQUIPOS</h1>
+
+<form class="f" name="formulario" style="width: 40%;margin-left: 30%;margin-top: 0%;padding-top:0%;padding-bottom:41%">
+
+
+
+ <div layout-gt-xs="row" style="float:left;width:27%;margin-top:2%">
+            <div flex-gt-xs>
+              <md-datepicker style="background:none;color:#292c2f" ng-model="vm.ingreso.fechaIngreso" ng-model="myDate" md-placeholder="Fecha Ingreso"></md-datepicker>
+            </div>
+          </div>
+
+  
+    <md-input-container class="md-block" style="float: left;margin-left: 1em;width:28%" >
+                        <label>Hora de Ingreso*</label>
+                       <input name="HoraIn" ng-model="vm.ingreso.horaIngreso" type="time"><span style="top:-25px;margin-left:77%;color:#292c2f" class="glyphicon glyphicon-time"></span>
+                      <div ng-messages="projectForm.HoraIn.$error">
+                            <div ng-message-exp="['required','pattern','md-maxlength']">Introduzca una Hora Valida</div>
+                        </div>
+                        
+                    </md-input-container>    
+
+   
+    <md-input-container class="md-block" style="float: left;width: 38%;margin-right:1em;height:4em">
+                        <label>Nombre del Cliente*</label>
+                        <input md-maxlength="45" name="NameOwn" ng-model="vm.ingreso.cliente"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,45}$/"><span style="color:#292c2f" class="glyphicon glyphicon-home"></span>
+                        <div ng-messages="projectForm.NameOwn.$error">
+                            <div ng-message-exp="['required','pattern','md-maxlength']">Este campo es requerido. Nombre del Cliente Max. 45 Caracteres.</div>
+                        </div>
+                    </md-input-container>   
+
+      <md-input-container class="md-block" style="float: left;margin-right: 1em;width: 56%;margin-left:13px">
+                        <label>Contacto*</label>
+                        <input md-maxlength="45" name="NameCon" ng-model="vm.ingreso.contacto"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,45}$/"><span style="color:#292c2f" class="glyphicon glyphicon-user"></span>
+                        <div ng-messages="projectForm.NameCon.$error">
+                            <div ng-message-exp="['required','pattern','md-maxlength']">Este campo es requerido. Nombre del Contacto Max. 45 carácteres.</div>
+                        </div>
+                    </md-input-container>         
+
+
+<md-input-container class="md-block" style="float: left;width: 35%;margin-right: 1em;">
+                        <label>Número de Orden *</label>
+                        <input md-maxlength="9" name="NumEq" ng-model="vm.ingreso.numOrden"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                        <div ng-messages="projectForm.NumEq.$error">
+                            <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números.</div>
+                        </div>
+                    </md-input-container>
+
+
+  <md-input-container class="md-block" style="float: left;width: 45%;margin-right:1em;height:58px;margin-left:1em">
+                        <label>Teléfono*</label>
+                        <input md-maxlength="45" name="Tel" ng-model="vm.ingreso.telefono"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-., c ,_]{3,45}$/"><span style="top:-27px;margin-left:83%;color:#292c2f" class="glyphicon glyphicon-earphone"></span>
+                        <div ng-messages="projectForm.Tel.$error">
+                            <div ng-message-exp="['required','pattern','md-maxlength']">Campo requerido.</div>
+                        </div>
+                    </md-input-container>
+
+
+
+   <md-input-container class="md-block" style="float: left;width: 46%;">
+                        <label>Dirección*</label>
+                        <input md-maxlength="45" name="NameDir" ng-model="vm.ingreso.direccion">
+                        <div ng-messages="projectForm.NameDir.$error">
+                            <div ng-message-exp="['required','md-maxlength']">Ingrese Direccion Valida</div>
+                        </div>
+                    </md-input-container>      
+
+
+
+     <md-input-container class="Section-calificar-result-label-container" style="float: left;margin-right: 1em;width: 43%;height:4em;margin-left:1em">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" md-no-asterisk ng-pattern="/^[a-zA-Z0-9-.\!¡#\$%\'\*+\/=?\^_\`{\|}\~-]{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}\.?([a-zA-Z]{2,})?$/" value="" ng-model="vm.ingreso.correo"></input>
+                        <div ng-messages="projectForm.email.$error" role="alert" multiple>
+                        <div ng-message="pattern">El correo electronico no es valido:<br> example@example.com</div>
+                        </div>
+                    </md-input-container>
+                    
+    <md-input-container class="md-block" style="float: left;width: 22%;margin-right: 1em;height:4em">
+                        <label>Número de Equipos</label>
+                        <input md-maxlength="9" name="NumO" ng-model="vm.ingreso.numeroEquipos"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                        <div ng-messages="projectForm.NumO.$error">
+                            <div ng-message-exp="['required','pattern','md-maxlength']">Ingrese solo números.</div>
+                        </div>
+                    </md-input-container>                                                                                                 
+
+
+
+ <md-input-container class="md-block" style="float: left; width: 24.1%;">
+                        <label>Equipos Reposición</label>
+                        <input md-maxlength="9" name="EqRepo" ng-model="vm.ingreso.equiposRep"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                        <div ng-messages="projectForm.EqRepo.$error">
+                            <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números positivos.</div>
+                        </div>
+                    </md-input-container>
+
+
+  
+   <md-input-container class="md-block" style="float: left; margin-right: 2%;margin-left:1em">
+                        <label>Numero de Fundas</label>
+                        <input md-maxlength="9" name="EqRepo" ng-model="vm.ingreso.numeroFundas"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                        <div ng-messages="projectForm.EqRepo.$error">
+                            <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números positivos.</div>
+                        </div>
+                    </md-input-container>
+
+
+ 
+ 
+  <md-input-container class="md-block" style="float: left;width: 25%; margin-right: 2%;margin-top:18px">
+                        <label>Numero de Estuches</label>
+                        <input md-maxlength="9" name="EqRepo" ng-model="vm.ingreso.numeroEstuches"  ng-pattern="/^[0-9]*$/" maxlength="9">
+                        <div ng-messages="projectForm.EqRepo.$error">
+                            <div ng-message-exp="['pattern','md-maxlength']">Ingrese solo números positivos.</div>
+                        </div>
+                    </md-input-container>
+
+<md-input-container class="md-block" style="float: left;margin-right: 5%;width:38.2%">
+                        <label>Transportador*</label>
+                        <input md-maxlength="45" name="Trans" ng-model="vm.ingreso.transportador"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,45}$/"><span style="color:#292c2f" class="glyphicon glyphicon-plane"></span>
+                        <div ng-messages="projectForm.Trans.$error">
+                            <div ng-message-exp="['required','pattern','md-maxlength']">Campo requerido.</div>
+                        </div>
+                    </md-input-container>  
+
+
+  <md-input-container class="md-block" style="float: left;width: 93.1%;margin-left:1em">
+                        <label>Observaciones</label>
+                        <input md-maxlength="200" name="Trans" ng-model="vm.ingreso.observaciones"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,200}$/"><span style="color:#292c2f;top: -23px;margin-left: 92%;" class="glyphicon glyphicon-list-alt"></span>
+                        
+                    </md-input-container>     
+
+   <div class="form-group" style="float: left; width: 21%;margin-left:1%" ><label style="font-size: 15px;">Tipo equipo</label>
+            <select style="background: #E6E9EF;" class="form-control" ng-model="vm.ingreso.otros">
+              <option ng-value="">E-Guard</option>
+              <option ng-value="">Smart-Pilot</option>
+              <option ng-value="">Sensor de Giro</option>
+              <option ng-value="">Homologadas</option>
+              <option ng-value="">Otro</option>
+            </select>
+          </div>                  
+
+
+
+
+   <div class="city" style="float: left;margin-top: 0%; width: 22%;margin-left:3%" class="form-group" ><label>Escoge la Ciudad*</label>
+              <select style="background: #E6E9EF;" ng-model="vm.ingreso.idCiudad" class="form-control" ng-options="ciudades as ciudades.nombreCiudad for ciudades in vm.ciudades" required>
+                <option ng-value="">Seleccione una ciudad ...</option>
+              </select>
+            </div>
+
+ 
+
+
+  
+ 
+
+ 
+ 
+ 
+
+
+   
+
+ 
+
+    <div layout-gt-xs="row" style="float:left;width:35%;margin-top:-5%;margin-left:25%">
+            <div flex-gt-xs>
+              <md-datepicker style="background:none;color:#292c2f" ng-model="vm.ingreso.fechaDespacho" ng-model="myDate" md-placeholder="Fecha Despacho"></md-datepicker>
+            </div>
+          </div>                   
+
+
+
+   
+
+          <md-input-container class="md-block" style="float: left;width: 20%;margin-left: 53%;margin-top:-5%">
+                        <label>Despacho/Guía</label>
+                        <input md-maxlength="45" name="Trans" ng-model="vm.ingreso.despachoGuia"  ng-pattern="/^[a-zA-Z Ññáéíóú 0-9-, c ,_]{3,200}$/"><span style="color:#292c2f;top: -46px;margin-left: 90%;" class="glyphicon glyphicon-list-alt"></span> 
+
+ 
+
+
+
+
+
+ <md-button  style="margin-left: -18em; margin-top: -0.5%;box-shadow: -6px 6px 11px -1px rgba(0,0,0,0.49); background:grey" class="btn btn-primary" type="submit" name="name" value="Guardar" ng-click="vm.update()">Actualizar</md-button> 
+</form>
+          
+    </div>
+  </div>
+
+ 
+      
+<style>
+
+@media screen and (max-width: 1914px){
+	.f{
+		width:41% !important;
+	}
+}
+
+
+@media screen and (max-width: 1867px){
+	.f{
+		width:42% !important;
+		margin-left: 30% !important; 
+		padding-bottom: 42% !important;
+	}
+}
+
+@media screen and (max-width: 1823px){
+	.f{
+		width:43% !important;
+		padding-bottom: 43% !important;
+		
+	}
+}
+
+@media screen and (max-width: 1781px){
+	.f{
+		width:44% !important;
+	    padding-bottom: 45% !important;
+	    margin-left: 29% !important;
+
+		 
+	}
+}
+
+@media screen and (max-width: 1741px){
+	.f{
+		width:45% !important;
+		margin-left: 29% !important;
+
+		
+	}
+}
+
+
+@media screen and (max-width: 1703px){
+	.f{
+		width:46% !important;
+		margin-left: 27% !important;
+		padding-bottom: 47% !important;
+		
+	}
+}
+
+@media screen and (max-width: 1666px){
+	.f{
+		width:47% !important;
+		
+		
+	}
+}
+
+@media screen and (max-width: 1631px){
+	.f{
+		width:48% !important;
+		
+	}
+}
+
+
+@media screen and (max-width: 1621px ){
+    .f{
+      width: 48% !important;
+      margin-left: 28% !important;
+      padding-bottom: 49% !important
+      
+    }
+    .form-group{
+      width: 22% !important;
+    }
+    .obs{
+      width: 60% !important;
+    }
+
+@media screen and (max-width: 1597px){
+	.f{
+		width:49% !important;
+		margin-left: 27% !important;
+		
+	}
+}
+
+@media screen and (max-width: 1565px){
+	.f{
+		width:50% !important;
+	    padding-bottom: 51% !important;
+	    margin-left: 27% !important;
+
+
+		
+	}
+}
+
+@media screen and (max-width: 1534px){
+	.f{
+		width:51% !important;
+		margin-left: 26% !important;
+	}
+}
+
+@media screen and (max-width: 1504px){
+	.f{
+		width:52% !important;
+	    padding-bottom: 53% !important;	
+		
+	}
+}
+
+@media screen and (max-width: 1476px){
+	.f{
+		width:53% !important;
+		padding-bottom: 53% !important;
+	    margin-left: 24% !important;	
+	}
+}
+
+@media screen and (max-width: 1448px){
+	.f{
+		width:54% !important;
+		    padding-bottom: 55% !important;
+	}
+}
+
+@media screen and (max-width: 1422px){
+	.f{
+		width:55% !important;
+		    
+	}
+}
+
+@media screen and (max-width: 1396px){
+	.f{
+		width:56% !important;
+	    margin-left: 24% !important;	    
+	}
+}
+
+@media screen and (max-width: 1390px ){
+    .f{
+      
+      width: 56% !important;
+      margin-left: 23% !important;
+      padding-bottom: 57% !important;
+      
+    }
+    .form-group{
+      width: 22% !important;
+    }
+    .obs{
+      width: 60% !important;
+    }    
+
+
+@media screen and (max-width: 1372px){
+	.f{
+		width:57% !important;
+	    	    
+	}
+}
+
+@media screen and (max-width: 1348px){
+	.f{
+		width:58% !important;
+		 padding-bottom: 59% !important;
+	    	    
+	}
+}
+
+@media screen and (max-width: 1325px){
+	.f{
+		width:59% !important;
+		margin-left: 22% !important;
+		
+	    	    
+	}
+}
+
+@media screen and (max-width: 1303px){
+	.f{
+		width:60% !important;
+		margin-left: 22% !important;
+		padding-bottom: 61% !important;
+	    	    
+	}
+}
+  @media screen and (max-width: 1287px ){
+    .f{
+      width: 60% !important;
+      margin-left: 22% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 62% !important
+    }
+
+@media screen and (max-width: 1281px){
+	.f{
+		width:61% !important;
+		margin-left: 21% !important;
+		
+	    	    
+	}
+}
+
+@media screen and (max-width: 1261px){
+	.f{
+		width:62% !important;
+		margin-left: 21% !important;
+		    	    
+	}
+	.h{
+		padding-left: 4% !important; 
+	}
+}
+
+@media screen and (max-width: 1240px){
+	.f{
+		width:63% !important;
+	    padding-bottom: 64% !important;	    	    
+	}
+}
+
+
+@media screen and (max-width: 1221px){
+	.f{
+		width:64% !important;
+	    	    	    
+	}
+}
+
+
+@media screen and (max-width: 1202px){
+	.f{
+		width:65% !important;
+	    padding-bottom: 65% !important;
+	    margin-left: 18% !important;   	    	    
+	}
+	.h{
+		padding-left: 0% !important;
+	}
+}
+
+@media screen and (max-width: 1184px){
+	.f{
+		width:66% !important;
+		padding-bottom: 67% !important;
+	     	    	    
+	}
+}
+  @media screen and (max-width: 1172px ){
+    .f{
+      width: 66% !important;
+      margin-left: 19% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 67% !important
+    }
+
+@media screen and (max-width: 1166px){
+	.f{
+		width:67% !important;
+	     	    	    
+	}
+}
+
+@media screen and (max-width: 1149px){
+	.f{
+		width:68% !important;
+		padding-bottom: 70% !important;
+		margin-left: 17% !important;
+	     	    	    
+	}
+	.h{
+		    padding-left: 2% !important;
+	}
+}
+  @media screen and (max-width: 1132px ){
+    .f{
+      width: 69% !important;
+      margin-left: 16% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 70% !important;
+
+    }
+
+    .h{
+    	padding-left: 0% !important;
+    }  
+
+@media screen and (max-width: 1116px){
+	.f{
+		width:70% !important;
+	     	    	    
+	}
+}
+
+@media screen and (max-width: 1101px){
+	.f{
+		width:71% !important;
+	     	    	    
+	}
+}
+
+  @media screen and (max-width: 1093px ){
+    .f{
+      width: 73% !important;
+      margin-left: 14% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 73% !important
+    } 
+
+   @media screen and (max-width: 1026px ){
+    .f{
+      width: 64% !important;
+      margin-left: 20% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 76% !important
+    }
+
+
+   @media screen and (max-width: 1009px ){
+    .f{
+      width: 65% !important;
+      margin-left: 19% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 79% !important
+    }  
+
+   @media screen and (max-width: 994px ){
+    .f{
+      width: 70% !important;
+      margin-left: 18% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 82% !important
+    }
+
+   @media screen and (max-width: 924px ){
+    .f{
+      width: 74% !important;
+      margin-left: 17% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 86% !important
+    } 
+
+
+  @media screen and (max-width: 875px ){
+    .f{
+      width: 78% !important;
+      margin-left: 17% !important;
+      margin-top: 0% !important;
+      padding-top: 2% !important;
+      padding-bottom: 92% !important
+    }          
+
+    @media screen and (max-width: 350px ){
+      .f{
+        width: 64% !important;
+        margin-left: 10% !important;
+      }
+      .numo{
+        width: 128% !important;
+
+      }
+      .fei{
+        width: 128% !important;
+      }
+      .hi{
+        width: 128% !important;
+        margin-left: 0% !important;
+      }
+      .nc{
+        width: 128% !important;
+      }
+      .con{
+        width: 128% !important;
+      }
+      .tel,.dir,.ce,.numeq,.equip,.numes,.ot,.numf,.trans,.obs,.dg{
+        width: 128% !important;
+      }
+      .fed{
+        width: 128% !important;
+        margin-top: 0 !important;
+      }
+      .btn-primary{
+        margin-left: 45% !important;
+      }
+    }
+  }
+
+
+  
+</style>
